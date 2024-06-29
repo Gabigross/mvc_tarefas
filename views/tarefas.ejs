@@ -1,11 +1,4 @@
 
-<!DOCTYPE html> 
-    <html> 
-    <head> 
-        <title>Lista de Tarefas</title> 
-    </head> 
-
-    <body> 
         <h1>Lista de Tarefas</h1> 
         <ul>
             <%
@@ -18,13 +11,13 @@
               </li>
             <% }); %> </ul>
             
+            <form action="/tarefas" method="POST"> 
+                <input type="text" name="title" placeholder="Nova Tarefa"> 
+                <button type="submit">Adicionar</button> 
              
-        <form action="/tarefas" method="POST"> 
-            <input type="text" name="title" placeholder="Nova Tarefa"> 
-            <button type="submit">Adicionar</button> 
+
             
-            <a  class="btn btn-primary mb-3" href="/login" role="button" >Voltar</a>
+            
 
         </form> 
-    </body> 
-</html>
+
