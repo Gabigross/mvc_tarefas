@@ -11,9 +11,11 @@
 <body>
 
     <div class="logo">
-      <div class="img"> <img src="<%= layoutVariables.img %>agenda.png" alt=""></div> 
-      </div>
+      <div class="img">  <img src="<%= layoutVariables.img %>agenda.png" alt=""></div>
+      <div class="texto"><h4>Bem vindo ao Tarefa Cimol...</h4></div>
+    </div>
     
+
 
     <div id="msg">
         <% if(locals.layoutVariables.msg){ %>
@@ -33,7 +35,27 @@
         %>
     </div>
     
+    <div class="conteudo">
+        <%- body %>
+    </div>
 
-    <%- body %>
+
+    <footer>
+        <div class="row">
+            <div class="col">
+                <img src="<%= layoutVariables.img %>cimol.jpg" class="rounded float-start" alt="...">
+            </div>
+            <div class=" col">
+                <h6>Professor: <br>Candido</h6>
+            </div>
+            <div class="col">
+                <img src="<%= layoutVariables.img %>info.png" class="rounded float-end" alt="...">
+            </div>
+        
+        
+
+    </footer>
 </body>
+
 </html>
+

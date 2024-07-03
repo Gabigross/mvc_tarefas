@@ -4,6 +4,8 @@ function login(req, res) {
     res.render('login');
   }
 
+
+
   async function autenticar(req,res) { 
     const resp = await Usuario.autenticar(req.body.email, req.body.senha);
     if (resp && resp.length > 0) {
@@ -12,7 +14,7 @@ function login(req, res) {
            class: "alert-success",
            msg: "Usuário autenticado com sucesso!"
       }
-      res.redirect('/tarefas');
+      res.redirect('/');
     } else {
       req.session.msg = {
            class: "alert-danger",

@@ -1,5 +1,5 @@
 *{
-    margin: 0;
+    margin: 2px;
     padding: 0;
     box-sizing: border-box;
 
@@ -23,21 +23,36 @@ h1 {
     font-weight: 400;
     padding: 15px;
     text-align: center;
+    margin: 25px;
 }
 
+h4{
+    color: black;
+    text-align: right;
+}
+
+
+.logo{
+    height: 80px;
+    width: 100%;
+    background-color: #1c00b9d9 ;
+}
 
 img{
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 80px; /* Ajuste conforme necessário */
+    
+    height: 100%; /* Ajuste conforme necessário */
     width: 80px;
 }
 
 .login{
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin-left:30% ;
     border: solid 2px black;
     text-align: center;
     border-radius: 15px;
@@ -50,9 +65,28 @@ input{
     border-radius: 10px;
     margin: 15px;
     width: 80%;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 button{
     border-radius: 10px;
-    margin: auto;
+    margin: 15px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
+
+footer{
+    margin-top: 30px;
+    margin-left: auto;
+    text-align: center;
+}
+
+/*.conteudo{
+    display: flex;
+    justify-content: center;
+    border: solid 2px black;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    height: 50%;
+    width: 40%;
+}*/
