@@ -10,25 +10,29 @@ async function getTarefas(req, res) {
 } 
 
 async function addTarefa(req, res) { 
-	const { id, title } = req.body; 
-	const tarefa = new Tarefa(id, title, false); 
-	await tarefa.salvar();
-
+	const { title } = req.body; 
+	const tarefa = new Tarefa(undefined, title, "");
+	let msg = '';
+	if (await tarefa.salvar()) {
+	  msg = { class: "alert-success", msg: "Tarefa adicionada com sucesso!" };
+	} else {
+	  msg = { class: "alert-danger", msg: "Falha ao adicionar a tarefa!" };
+	}
+	req.session.msg = msg;
 	res.redirect('/tarefas'); 
-} 
-	//aqui delete
-	async function deleteTarefa(req, res){
- 
-		let idTarefa=req.params.id;
-		let msg='';
-		if(await Tarefa.deleteTarefa(idTarefa)){
-			msg = 'Sucesso!';
-		}else{
-		  msg = 'Falha!';
-		}
-		res.redirect('/tarefas');
-	  
-	  }
+  } 
+  
+  async function deleteTarefa(req, res){
+	const idTarefa = req.params.id;
+	let msg = '';
+	if(await Tarefa.deleteTarefa(idTarefa)){
+	  msg = { class: "alert-success", msg: "Tarefa deletada com sucesso!" };
+	} else {
+	  msg = { class: "alert-danger", msg: "Falha ao deletar a tarefa!" };
+	}
+	req.session.msg = msg;
+	res.redirect('/tarefas');
+  }
 	  
 	  
 	  

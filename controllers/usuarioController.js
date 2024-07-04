@@ -14,19 +14,32 @@ function login(req, res) {
            class: "alert-success",
            msg: "Usuário autenticado com sucesso!"
       }
-      res.redirect('/');
+      console.log(1);
+      return res.redirect('/tarefas');
     } else {
+      console.log(2);
       req.session.msg = {
            class: "alert-danger",
            msg: "Usuário não encontrado!"
       }
-  
-  res.redirect('/login');
+  console.log(3);
+  return res.redirect('/login');
     }
   } 
+
+  function logout(req, res) {
+    req.session.destroy((err) => {
+      if (err) {
+      console.log(err);
+      return res.redirect('/tarefas');
+      } else {
+      return res.redirect('/login');
+      }
+    });
+    }
   
 
 
 
-  module.exports = {login,autenticar};
+  module.exports = {login, autenticar, logout};
   

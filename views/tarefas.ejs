@@ -5,13 +5,18 @@
             console.log(tarefas);
             console.log
             tarefas.forEach(tarefa => { %>
+              
               <li>
                 <%= tarefa.title %>
-                <a href="/tarefa/delete/<%= tarefa.id_tarefa %>"><button>Delete</button></a>
+                <a href="/tarefa/delete/<%= tarefa.id_tarefa %>"><button class="delete">Delete</button></a>
               </li>
+            
             <% }); %> </ul>
             
+<hr>
+
             <form action="/tarefas" method="POST"> 
+              <h6>Adicionar uma nova tarefa:</h6>
                 <input type="text" name="title" placeholder="Nova Tarefa"> 
                 <button type="submit">Adicionar</button> 
              

@@ -21,7 +21,8 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use((req, res, next) => {
 	if(!req.session.user){
-		if(req.originalUrl == "/login" || req.originalUrl == "/autenticar"){
+		console.log(req.originalUrl);
+		if(req.originalUrl == "/login" || req.originalUrl == "/usuario/autenticar"){
 			app.set('layout', './layouts/login');
 			res.locals.layoutVariables = {
 				url : process.env.URL,
@@ -31,10 +32,11 @@ app.use((req, res, next) => {
 			};
 			next();			
 		}else{
+			console.log(0);
 			res.redirect('/login');
 		}	
 	}else{
-		app.set('layout', './layouts/index');
+		app.set('layout', './layouts/tarefas');
 		res.locals.layoutVariables = {
 			url : process.env.URL,
 			img : "/img/",
@@ -66,7 +68,7 @@ app.get('/tarefa/delete/:id', tarefaController.deleteTarefa);
 
 app.get('/login',usuarioController.login);
 app.post('/usuario/autenticar', usuarioController.autenticar);
-
+app.get('/logout', usuarioController.logout);
 app.listen(port, () => { 
 console.log(`Servidor rodando em http://localhost:${port}`);
 });
